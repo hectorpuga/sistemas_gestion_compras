@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SistemaGestionCompras.Site" %>
+<%@ Register Assembly="DevExpress.Web.v24.2" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Sistema de Gestión</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="display: flex; height: 100vh;">
+            <!-- Barra lateral -->
+            <dx:ASPxNavBar ID="navBar" runat="server" Width="200px" Theme="Office365" EnableAnimation="true">
+                <Groups>
+                    <dx:NavBarGroup Text="Menú Principal">
+                        <Items>
+                            <dx:NavBarItem Text="Inicio" NavigateUrl="~/Home.aspx" />
+                            <dx:NavBarItem Text="Proveedores" NavigateUrl="~/Proveedores.aspx" />
+                            <dx:NavBarItem Text="Productos" NavigateUrl="~/Productos.aspx" />
+                        </Items>
+                    </dx:NavBarGroup>
+                </Groups>
+            </dx:ASPxNavBar>
+
+            <!-- Contenido principal -->
+            <div style="flex-grow: 1; padding: 20px;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

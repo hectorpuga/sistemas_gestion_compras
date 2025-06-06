@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "29860791-d812-411d-8e21-12d5516d308a",
+		"name": "BuzonSugerencias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33376969"
+	},
+	"item": [
+		{
+			"name": "Agregar_Emails_Por_Area",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "matriz",
+							"type": "file",
+							"src": "postman-cloud:///1ef6baad-9874-4cf0-832e-6572f8c76103"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{HOSTPRODUCTION}}/api/AreaServicio/matriz/emails",
+					"protocol": "http",
+					"host": [
+						"{{HOSTPRODUCTION}}"
+					],
+					"path": [
+						"api",
+						"AreaServicio",
+						"matriz",
+						"emails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Mavisamente Correos por (typeMessage,Branch,area)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"emailsCorrectsIncorrects\":[\r\n        {\"incorrect\": \"migue.acosta@enginetsystems.com\", \"correct\": \"miguel.acosta@enginetsystems.com\"}\r\n        \r\n        ],\r\n    \"areas\":[\"Comedor\",\"Iluminación/Energía Eléctrica\",\"Reclutamiento\",\"Operaciones\",\"Sistemas/Equipo de Computo\",\"Baños\",\"Jefe Inmediato\",\"Recursos Humanos\",\"Aires acondicionados\",\"Dispensador de agua\",\"Limpieza\",\"Capacitación\",\"Seguridad fisica\",\"Gerente de centro\",\"Sala de capacitación\",\"Calidad\"],\r\n    \"sitiesBranchs\":[\"HERMOSILLO\",\"Queretaro\",\"Merida\",\"MTY Arteaga\",\"MTY Tapia\"],\r\n    \"messagesTypes\":[\"Quejas\",\"Sugerencias\",\"Felicitaciones\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{HOSTPRODUCTION}}/api/AreaServicio/updateEmailsIncorrects",
+					"protocol": "http",
+					"host": [
+						"{{HOSTPRODUCTION}}"
+					],
+					"path": [
+						"api",
+						"AreaServicio",
+						"updateEmailsIncorrects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddMessagesTypesArea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"area\":\"Comedor\",\r\n    \"sitesBranchs\":[\"HERMOSILLO\"],\r\n    \"messagesTypes\":[\r\n         {\r\n            \"name\":\"Felicitaciones\",\r\n            \"emailsToSend\":[\"hector@gmail.com\"]\r\n            \r\n            },\r\n        {\r\n        \"name\":\"Quejas\",\r\n        \"emailsToSend\":[\"hector@gmail.com\"]\r\n\r\n        },\r\n        {\r\n            \"name\":\"Sugerencias\",\r\n            \"emailsToSend\":[\"hector@gmail.com\"]\r\n            },\r\n            {\r\n            \"name\":\"Sugerencias2\",\r\n            \"emailsToSend\":[\"hector@gmail.com\"]\r\n            }\r\n            \r\n       ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4003/api/AreaServicio/addMessagesTypes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4003",
+					"path": [
+						"api",
+						"AreaServicio",
+						"addMessagesTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Comentarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\r\n        \"name\": \"hector2\",\r\n        \"email\": \"\",\r\n        \"idBranch\":\"646d3bfff6cc5a0060e582df\",\r\n        \"anonymous\": true,\r\n        \"ip\": \"189.206.84.118\",\r\n        \"comment\": \"buen día como estas\",\r\n        \"square\": null,\r\n        \"serviceArea\": \"Comedor\",\r\n        \"Date_registration\": \"2024-07-10T21:14:55.849Z\",\r\n        \"messageType\": \"Felicitaciones\"\r\n    \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4003/api/ComentariosBuzon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4003",
+					"path": [
+						"api",
+						"ComentariosBuzon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enviar_Reportes_Comentarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://{{HOSTPRODUCTION}}/api/ComentariosBuzon/Reporte",
+					"protocol": "http",
+					"host": [
+						"{{HOSTPRODUCTION}}"
+					],
+					"path": [
+						"api",
+						"ComentariosBuzon",
+						"Reporte"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Sitio Por Area",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"area\":\"Comedor\",\r\n    \"sitesBranchs\":[\r\n\r\n          {\"id\": \"64b86a657f32f30061947244\",\r\n      \"name\": \"Guadalajara\",\r\n      \"messageTypes\": [\r\n        {\r\n          \"name\": \"Felicitaciones\",\r\n          \"emailsToSend\": [\r\n           \"rhguadalajara@tytcenter.com\" , \"coordinador.rh@tytcenter.com\" , \"karina.robles@tytcenter.com\", \"guillermo.celedon@tytcenter.com\"\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"Quejas\",\r\n          \"emailsToSend\": [\r\n          \"coordinador.rh@tytcenter.com\", \"guillermo.celedon@tytcenter.com\"\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"Sugerencias\",\r\n          \"emailsToSend\": [\r\n            \"rhguadalajara@tytcenter.com\", \"coordinador.rh@tytcenter.com\", \"karina.robles@tytcenter.com\", \"guillermo.celedon@tytcenter.com\"\r\n          ]\r\n        }\r\n      \r\n      ]}\r\n    ]\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4003/api/AreaServicio/addBranchSitio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4003",
+					"path": [
+						"api",
+						"AreaServicio",
+						"addBranchSitio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar matriz de correos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "matriz",
+							"type": "file",
+							"src": "postman-cloud:///1ef6baad-9874-4cf0-832e-6572f8c76103"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{HOSTPRODUCTION}}/api/AreaServicio/matriz/emails",
+					"protocol": "http",
+					"host": [
+						"{{HOSTPRODUCTION}}"
+					],
+					"path": [
+						"api",
+						"AreaServicio",
+						"matriz",
+						"emails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar correo masivo a todos los sitios en apartado de correos",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"nuevoCorreo\":\"guillermo.celedon@tytcenter.com\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{HOSTPRODUCTION}}/api/AreaServicio/Maviso/addEmail",
+					"protocol": "http",
+					"host": [
+						"{{HOSTPRODUCTION}}"
+					],
+					"path": [
+						"api",
+						"AreaServicio",
+						"Maviso",
+						"addEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reemplazar correo masivo",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n\r\n\r\n    {\r\n  \"correoActual\": \"soporte.corporativo@enginetsystems.com\",\r\n  \"correoNuevo\": \"g.ramos@tytcenter.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{HOSTPRODUCTION}}/api/AreaServicio/Maviso/email",
+					"protocol": "http",
+					"host": [
+						"{{HOSTPRODUCTION}}"
+					],
+					"path": [
+						"api",
+						"AreaServicio",
+						"Maviso",
+						"email"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
